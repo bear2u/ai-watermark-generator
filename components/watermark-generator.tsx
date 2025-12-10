@@ -74,6 +74,30 @@ export default function WatermarkGenerator() {
     localStorage.setItem("watermark-settings", JSON.stringify(settings))
   }, [watermarkText, textColor, textOpacity, bgColor, bgOpacity, position, isOpen])
 
+  // Handle Global Paste
+  useEffect(() => {
+    const handlePaste = (e: ClipboardEvent) => {
+      if (e.clipboardData && e.clipboardData.items) {
+        const items = e.clipboardData.items
+        for (let i = 0; i < items.length; i++) {
+          if (items[i].type.indexOf("image") !== -1) {
+            const file = items[i].getAsFile()
+            if (file) {
+              processFile(file)
+              e.preventDefault() // Prevent default paste behavior if image is found
+            }
+            break // Only process the first image found
+          }
+        }
+      }
+    }
+
+    window.addEventListener("paste", handlePaste)
+    return () => {
+      window.removeEventListener("paste", handlePaste)
+    }
+  }, []) // Empty dependency array as processFile is stable (or we can add it if needed, but logic is self-contained)
+
   const [isDragging, setIsDragging] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
 
