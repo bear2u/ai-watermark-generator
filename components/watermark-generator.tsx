@@ -253,7 +253,7 @@ export default function WatermarkGenerator() {
       {/* Controls Section - Order 2 on Mobile */}
       <Card className="lg:col-span-1 h-fit shadow-md order-2 lg:order-1">
         <CardHeader>
-          <CardTitle className="text-xl">Settings</CardTitle>
+          <CardTitle className="text-xl">AI 이미지 워터마크 적용기</CardTitle>
           <CardDescription>Customize your watermark</CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
