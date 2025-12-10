@@ -2,7 +2,7 @@
 
 클라이언트 사이드에서 안전하게 이미지에 워터마크를 추가할 수 있는 웹 애플리케이션입니다. Next.js 16과 ShadCN UI로 제작되었으며, 모바일과 데스크탑 모두에서 최적화된 경험을 제공합니다.
 
-![Preview](./public/preview.png)
+![Preview](screenshot.png)
 
 ## 주요 기능 (Features)
 
